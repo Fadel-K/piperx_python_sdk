@@ -4,21 +4,19 @@
 import time
 from piper_sdk import *
 
+pose_1 = [355, 0, 235, -180, 0, -90, 53]
+pose_2 = [265, 0, 466, -85, 0, -90, 0]
+
 if __name__ == "__main__":
     piper = C_PiperInterface_V2("can0",start_sdk_joint_limit=True)
     piper.ConnectPort()
     while( not piper.EnablePiper()):
         time.sleep(0.01)
+    
     piper.GripperCtrl(0,1000,0x01, 0)
+    
     factor = 1000
-    position = [
-                57.0, \
-                0.0, \
-                215.0, \
-                0, \
-                85.0, \
-                0, \
-                0]
+    position = pose_1
 
     count = 0
     while True:
@@ -26,34 +24,13 @@ if __name__ == "__main__":
         count  = count + 1
         if(count == 0):
             print("1-----------")
-            position = [
-                57.0, \
-                0.0, \
-                215.0, \
-                0, \
-                85.0, \
-                0, \
-                0]
+            position = pose_1
         elif(count == 200):
             print("2-----------")
-            position = [
-                57.0, \
-                0.0, \
-                260.0, \
-                0, \
-                85.0, \
-                0, \
-                0]
+            position = pose_2
         elif(count == 400):
             print("1-----------")
-            position = [
-                57.0, \
-                0.0, \
-                215.0, \
-                0, \
-                85.0, \
-                0, \
-                0]
+            position = pose_1
             count = 0
         
         X = round(position[0]*factor)
@@ -64,9 +41,9 @@ if __name__ == "__main__":
         RZ = round(position[5]*factor)
         joint_6 = round(position[6]*factor)
         print(X,Y,Z,RX,RY,RZ)
-        piper.MotionCtrl_2(0x01, 0x00, 100, 0x00)
+        piper.ModeCtrl(0x01, 0x00, 100, 0x00)
         piper.EndPoseCtrl(X,Y,Z,RX,RY,RZ)
         piper.GripperCtrl(abs(joint_6), 1000, 0x01, 0)
-        print(piper.GetArmStatus())
+        # print(piper.GetArmStatus())
         time.sleep(0.01)
     

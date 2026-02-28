@@ -1,5 +1,7 @@
 // Press ctrl shift v for view
 
+# EVERYTHING IN THIS FILE IS OBSERVATIONAL AND NOT CONFIRMED INFORMATION AND CAN BE WRONG
+
 # Arm Joint Angle Limits (Self-calculated max)
 
 J1 - [-155172, 154645]
@@ -74,3 +76,14 @@ RX_axis : -179870
 RY_axis : -354
 RZ_axis : 160001
 grippers_angle: 53100, 53.100
+
+# Movement modes
+## Mode 0
+
+It is a position mode that expects continous position controls like a servo / continous position control.
+Needs atleast 2 commands for it to act.
+Can be delayed / not work if the reverse IK is not clear
+
+## Mode 1
+
+It is a simple move joint to specific angle program, will always (as long as angle is within limit) work instantly

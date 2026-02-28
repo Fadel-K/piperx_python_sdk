@@ -5,7 +5,7 @@
 import time
 from piper_sdk import *
 
-pose = [0, 100, -80, 80, 0, 110]
+pose = [0, 90, -90, 90, 0, 90]
 gripper_angle = 53
 
 factor = 1000
@@ -21,7 +21,7 @@ if __name__ == "__main__":
     
     piper.ConnectPort()
     
-    piper.ModeCtrl(ctrl_mode=0x01, move_mode=0x01, move_spd_rate_ctrl=25, is_mit_mode=0x00)
+    piper.ModeCtrl(ctrl_mode=0x01, move_mode=0x01, move_spd_rate_ctrl=100, is_mit_mode=0x00)
     
     while (not piper.EnablePiper()):
         piper.EnableArm()
