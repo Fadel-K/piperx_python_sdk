@@ -78,12 +78,21 @@ RZ_axis : 160001
 grippers_angle: 53100, 53.100
 
 # Movement modes
-## Mode 0
+## Mode 0 (P Mode)
 
 It is a position mode that expects continous position controls like a servo / continous position control.
 Needs atleast 2 commands for it to act.
 Can be delayed / not work if the reverse IK is not clear
 
-## Mode 1
+## Mode 1 (J Mode)
 
 It is a simple move joint to specific angle program, will always (as long as angle is within limit) work instantly
+
+## Mode 2 (L Mode)
+
+It uses gripper position to move it in a straight line (if possible). It is slower than mode 0, and doesn't need continous control. It will execute command and then wait.
+
+
+## Mode 3 (C Mode)
+
+It uses gripper position to move it in a straight line (if possible). It is slower than mode 0, and doesn't need continous control. It will execute command and then wait.

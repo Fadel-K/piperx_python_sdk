@@ -27,20 +27,20 @@ if __name__ == "__main__":
     # print("1", piper.GetArmStatus())
     count = 0
     
-    # while count < 2:
-    #     X = round(pose_2[0]*factor)
-    #     Y = round(pose_2[1]*factor)
-    #     Z = round(pose_2[2]*factor)
-    #     RX = round(pose_2[3]*factor)
-    #     RY = round(pose_2[4]*factor)
-    #     RZ = round(pose_2[5]*factor)
-    #     joint_6 = round(pose_2[6]*factor)
+    while count < 2:
+        X = round(pose_2[0]*factor)
+        Y = round(pose_2[1]*factor)
+        Z = round(pose_2[2]*factor)
+        RX = round(pose_2[3]*factor)
+        RY = round(pose_2[4]*factor)
+        RZ = round(pose_2[5]*factor)
+        joint_6 = round(pose_2[6]*factor)
 
-    #     piper.ModeCtrl(0x01, 0x00, 100, 0x00)
-    #     piper.EndPoseCtrl(X,Y,Z,RX,RY,RZ)
-    #     time.sleep(0.2)
-    #     count +=1
-    #     print(count)
+        piper.ModeCtrl(0x01, 0x00, 100, 0x00)
+        piper.EndPoseCtrl(X,Y,Z,RX,RY,RZ)
+        time.sleep(0.2)
+        count +=1
+        print(count)
     
     print("Started main loop")
     
