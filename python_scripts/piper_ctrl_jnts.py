@@ -6,6 +6,9 @@ import time
 from piper_sdk import *
 
 pose = [0, 90, -90, 90, 0, 90]
+
+pose = [0, 0, 0, 0, 0, 0]
+
 gripper_angle = 53
 
 factor = 1000
